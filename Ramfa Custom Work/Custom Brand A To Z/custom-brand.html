@@ -1,0 +1,104 @@
+<div class="custom-brand-wrapper">
+    <div class="custom-brands">
+        <ul class="brand-list-wrapper">
+        {% assign letters = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z" | split: ' ' %}
+        {% for i in letters %}   
+          <li class="brand-list" >
+            <a href="#brand-{{i}}" id="{{ i }}">{{ i }}</a>
+          </li>
+        {% endfor %}
+        </ul>
+    </div>
+
+    <div class="custom-brand-name-wrapper" >
+      {% for letter in letters %} 
+        <div class="custom-brand-name" id="brand-{{ letter }}">
+            <span class="brand-name-tag">{{ letter }}</span>
+            <ul class="brand-name-list-wrapper">
+               {% for collection in collections %}
+               {% assign str=collection.title | split:"" %}
+                {% if str[0] == letter %}
+                    <li class="brand-name-list">
+                      <a href="{{ collection.url }}">{{ str }}</a>
+                    </li>
+                {% endif %}
+               {% endfor %}
+            </ul>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<style>
+.ced-disabled
+{
+pointer-events: none;
+  cursor: default;
+/*     background-image:url('https://cdn.shopify.com/s/files/1/0549/3021/1064/files/beauty-products-and-flower.jpg?v=1640071942'); */
+}
+</style>
+<script>
+$(document).ready(function(){
+var id=0,text;
+$("ul").each(function(){
+  var len=$(this).children().length;
+  if(len==0)
+  {
+    id=$(this).siblings('span').text();
+    $(`#${id}`).attr('src','#');
+    $(`#${id}`).html(`<del>${id}</del>`);
+    $(`#${id}`).addClass('ced-disabled');
+    $(this).parents('.custom-brand-name').hide(); 
+  }
+//     	console.log("length",len);
+});
+})
+
+/*scrolling page on header elements click*/
+
+$(function (){
+			$('.brand-list a').on('click', function(e){
+				e.preventDefault();
+				$('.brand-list a').removeClass('active');
+				$(this).addClass('active');
+				var attrval = $(this.getAttribute('href'));
+				$('html,body').stop().animate({
+					scrollTop: attrval.offset().top-170
+				}, 1000)
+			});
+		});
+
+
+
+// Custom Brands Bar
+
+var mainHeader = parseInt($('#shopify-section-announcement').outerHeight() + $('.header__desktop').outerHeight());
+var onlyHeader = $('.header__desktop').outerHeight();
+
+$(window).on("scroll", function() {
+    if($(window).scrollTop() > 20) {
+        $('.custom-brands').css('top', onlyHeader);
+    } else {
+       $('.custom-brands').css('top', mainHeader);
+    }
+});  
+
+</script>
+
+{% schema %}
+{
+"name": "Section name",
+"settings": [
+        {
+        "type":"product",
+        "label":"product",
+        "id":"product"	
+        }
+    ]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

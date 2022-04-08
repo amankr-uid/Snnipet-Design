@@ -1,0 +1,106 @@
+  
+/* ---- Collection list ---- */
+
+.index-collections-list {
+ 	position:relative; 
+}
+.index-collections-list .grid__heading-holder{
+  	padding-top: 0;
+	margin-top: -60px;
+	position: relative;
+}
+.index-collections-list .grid__heading-holder > *, .index-collections-list .grid__heading-holder {
+	padding: 0 !important;
+}
+.index-collections-list .grid__heading-holder::before {
+	position: absolute;
+	top: 40px;
+	left: 51%;
+	bottom: unset;
+	right: unset;
+	background: var(--purple);
+	content: "";
+	width: 50%;
+	border-radius: 200px;
+	height: 55%;
+	transform: translateX(-50%);
+}
+.index-collections-list .grid__heading {
+	display:none;
+}
+.index-collections-list {
+	margin-top: -5%;
+  	background:transparent !important;
+}
+.index-collections-list .collection-item {
+	background-color: var(--purple);
+}
+.index-collections-list .collection-item__image .background-size-cover{
+ 	background-color: var(--purple);
+	background-position: right center;
+	background-repeat: no-repeat;
+	background-size: contain; 
+}
+.index-collections-list .collection-item__info {
+	display: none;
+}
+.collection-list{
+	padding-bottom:30px;    
+}
+  .ced-images_container {
+   	width:100%;
+    height:100%;
+    max-height:600px;
+  }
+ .ced-images_container .responsive-wide-image{
+  	width:100%;
+   	height:100%;
+   	object-fit:contain;
+ }
+.index-collections-list .container {
+	position: relative;
+}
+.custom-featured-product .index-products .grid__heading-holder {
+	padding: 0 15px;
+  	display: flex;
+  	justify-content:space-between;
+}
+.custom-featured-product .index-products .grid__btn-wrapper {
+	text-align:right !important;    
+}
+.custom-featured-product .index-products .grid__heading {
+  	text-align:left !important; 
+}
+
+
+/* ---- Media Query ---- */
+
+@media(min-width:750px) and (max-width:989px) {
+  .index-collections-list .grid__heading {
+	display: block !important;
+    text-align:center !important;
+    text-transform:capitalize;
+}
+  .index-collections-list .ced-images_container {
+	display:none !important;    
+}
+  .index-collections-list .grid__heading-holder::before {
+	content: none;
+}
+  .index-collections-list > .grid-container {
+	transform: unset !important;
+	margin-top: -110px;
+}
+
+  
+}
+  
+
+
+ @media(max-width:749px) { 
+  .index-collections-list .container::after {
+	content: none;
+}
+
+  
+}

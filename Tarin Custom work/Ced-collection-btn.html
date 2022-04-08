@@ -1,0 +1,148 @@
+<style>
+/* ---- Collection page sub link ---- */
+
+.ced-collection-nav {
+	display: flex;
+	overflow-y: hidden;
+	overflow-x: auto;
+	max-width: 100vw;
+	align-items: center;
+  	padding: 12px 5px;
+	border-bottom: 1px solid #e2e2e2;
+}
+.ced-collection-nav .ced-collection-nav-list2 {
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+}
+.ced-collection-nav .ced-collection-nav-link {
+	display: flex;
+	width: 100%;
+	font-size: 11px;
+	letter-spacing: .5px;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	height: 100%;
+	z-index: 2;
+	position: relative;
+	white-space: nowrap;
+	padding: .5125rem .9375rem;
+  	font-size: 12px;
+}
+.breadcrumb {
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-negative: 0;
+	flex-shrink: 0;
+	white-space: nowrap;
+	padding-left: 1.6875rem;
+	margin: 0 !important;
+}
+.breadcrumb a, .breadcrumb span {
+	color: #000;
+	font-size: 13px;
+	letter-spacing: 0;
+	line-height: .875rem;
+	margin-right: 1.25rem;
+	position: relative;
+}
+
+
+</style>
+
+<body>
+
+<div class="col_meta_wrap ced-collection-nav">
+  <div class="col_meta ced-collection-nav-lis">
+    {%if collection.metafields.my_fields.collectionname1 !=blank %}
+  {%render 'breadcrumbs'%}	
+    {%endif%}
+  </div>
+{%if collection.metafields.my_fields.collectionname1 !=blank %}
+  <div class="col_meta ced-collection-nav-list">
+	<a class="ced-collection-nav-link" href="{{collection.metafields.my_fields.collectionurl1}}">
+      {{collection.metafields.my_fields.collectionname1}}
+	</a>
+  </div>
+{%endif%}
+
+{%if collection.metafields.my_fields.collectionname2 !=blank %}
+  <div class="col_meta ced-collection-nav-list">
+	<a class="ced-collection-nav-link" href="{{collection.metafields.my_fields.collectionurl2}}">
+       {{collection.metafields.my_fields.collectionname2}}
+	</a>
+  </div>
+{%endif%}
+
+{%if collection.metafields.my_fields.collectionname3 !=blank %}
+  <div class="col_meta ced-collection-nav-list">
+	<a class="ced-collection-nav-link" href="{{collection.metafields.my_fields.collectionurl3}}">
+       {{collection.metafields.my_fields.collectionname3}}
+	</a>
+  </div>
+{%endif%}
+
+{%if collection.metafields.my_fields.collectionname4 !=blank %}
+  <div class="col_meta ced-collection-nav-list">
+	<a class="ced-collection-nav-link" href="{{collection.metafields.my_fields.collectionurl4}}">
+       {{collection.metafields.my_fields.collectionname4}}
+	</a>
+  </div>
+{%endif%}
+
+{%if collection.metafields.my_fields.collectionname5 !=blank %}
+  <div class="col_meta ced-collection-nav-list">
+	<a class="ced-collection-nav-link" href="{{collection.metafields.my_fields.collectionurl5}}">
+        {{collection.metafields.my_fields.collectionname5}}
+	</a>
+  </div>
+{%endif%}
+
+{%if collection.metafields.my_fields.collectionname6 !=blank %}
+  <div class="col_meta ced-collection-nav-list">
+	<a class="ced-collection-nav-link" href="{{collection.metafields.my_fields.collectionurl6}}">
+        {{collection.metafields.my_fields.collectionname6}}
+	</a>
+  </div>
+{%endif%}
+  {%if collection.metafields.my_fields.collectionname7 !=blank %}
+  <div class="col_meta ced-collection-nav-list">
+	<a class="ced-collection-nav-link" href="{{collection.metafields.my_fields.collectionurl7}}">
+        {{collection.metafields.my_fields.collectionname7}}
+	</a>
+  </div>
+{%endif%}
+ {%if collection.metafields.my_fields.collectionname8 !=blank %}
+  <div class="col_meta ced-collection-nav-list">
+	<a class="ced-collection-nav-link" href="{{collection.metafields.my_fields.collectionurl8}}">
+        {{collection.metafields.my_fields.collectionname8}}
+	</a>
+  </div>
+{%endif%}
+ {%if collection.metafields.my_fields.collectionname9 !=blank %}
+  <div class="col_meta ced-collection-nav-list">
+	<a class="ced-collection-nav-link" href="{{collection.metafields.my_fields.collectionurl9}}">
+        {{collection.metafields.my_fields.collectionname9}}
+	</a>
+  </div>
+{%endif%}
+{%if collection.metafields.my_fields.collectionname10 !=blank %}
+  <div class="col_meta ced-collection-nav-list">
+	<a class="ced-collection-nav-link" href="{{collection.metafields.my_fields.collectionurl10}}">
+        {{collection.metafields.my_fields.collectionname10}}
+	</a>
+  </div>
+{%endif%}
+</div>
+
+
+</body>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Image Zoom Hover</title>
+	<meta charset="utf-8">
+<style>
+.product-img--main {
+   position: relative;
+  overflow: hidden;
+  width: 300px;
+  height: 300px;
+  float: left;
+  margin: 10px;
+}
+
+.product-img--main__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-transition: -webkit-transform .5s ease-out;
+    transition: -webkit-transform .5s ease-out;
+    transition: transform .5s ease-out;
+    transition: transform .5s ease-out,-webkit-transform .5s ease-out;
+}
+
+
+</style>
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+
+</head>
+<body>
+
+	  <div class="product-img--main" data-scale="2.2" data-image="https://picsum.photos/seed/picsum/200/300">
+	  	
+  </div>  
+
+ <script type="text/javascript">
+  	
+$('.product-img--main')
+        // tile mouse actions
+        .on('mouseover', function(){
+          $(this).children('.product-img--main__image').css({'transform': 'scale('+ $(this).attr('data-scale') +')'});
+        })
+        .on('mouseout', function(){
+          $(this).children('.product-img--main__image').css({'transform': 'scale(1)'});
+        })
+        .on('mousemove', function(e){
+          $(this).children('.product-img--main__image').css({'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%'});
+        })
+        // tiles set up
+        .each(function(){
+          $(this)
+            // add a image container
+            .append('<div class="product-img--main__image"></div>')
+            // set up a background image for each tile based on data-image attribute
+            .children('.product-img--main__image').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
+        });
+
+  </script>
+
+ 
+
+</body>
+</html>

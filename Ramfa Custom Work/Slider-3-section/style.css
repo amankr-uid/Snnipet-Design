@@ -1,0 +1,110 @@
+/* ---- Custom Banner ---- */
+
+.main1{
+    width:100%;
+     height:500px;
+}
+      /* dektop view  */
+     
+@media (min-width: 1455px){
+.main1{
+   height: 700px !important;
+}
+}
+@media (max-width: 1450px){
+.main1{
+   height:600px !important;
+}
+}
+@media(max-width: 1350px){
+.main1 {
+   height: 500px !important;
+}
+}
+@media (max-width: 1150px){
+.main1 {
+   height: 500px !important;
+}
+}
+@media(min-width:1025px) and (max-width: 1149px){
+.main1 {
+   height: 450px !important;
+}
+}
+@media (max-width: 1024px){
+.main1 {
+   height: 400px !important;
+}
+}
+@media(max-width: 749px){
+.main1 {
+   height: 250px !important;
+}
+}  
+.main1 .slick-list, .main1 .slick-track, .main1 .slick-track main2{
+    height:100%;
+     width: 100%;
+}
+.main1 .slick-track main2 a {
+   width: 100%;
+   height: 100%;
+   display: block;
+}
+.main1 .slick-slide div {
+    height: 100%; 
+}
+/* .main1 .slick-arrow {
+   background-color: var(--black);
+   width: 30px;
+   height: 30px;
+   border-radius: 100%;
+   margin: 0 50px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   padding-bottom: 8px;
+   z-index: 1;
+} */
+.main1 .slick-next {
+   right: 50px !important;
+}
+.main1 .slick-prev {
+   left: 50px !important;
+}
+.main1 .slick-next::before, .main1 .slick-prev::before {
+/* 	font-family: unset; */
+     opacity: 1;
+     line-height:0;
+     color: var(--black) !important;
+}
+.main1 .slick-next:focus, .main1 .slick-next:hover, .main1 .slick-prev:focus, .main1 .slick-prev:hover {
+   background: transparent;
+}
+.main {
+   padding: 0 !important;
+}
+.custom-slider {
+/* 	display: flex; */
+   background-repeat: no-repeat;
+   background-size: cover;
+     background-position: center;
+}
+.custom-slider .custom-slide {
+   width: 100%;
+/* 	height: 340px; */
+   display: flex;
+   flex-direction: column;
+     align-self: flex-end;
+}
+.custom-slide img, .main1 .slick-track .main2 img {
+   width: 100% !important;
+   height: 100%;
+   object-fit: cover;
+}
+.custom-slide .cs-text {
+   text-align: center;
+   color: var(--pitch);
+   text-transform: uppercase;
+   font-size: 20px;
+   letter-spacing: 1px;
+}

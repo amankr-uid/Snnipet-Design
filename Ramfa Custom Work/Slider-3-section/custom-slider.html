@@ -1,0 +1,193 @@
+<style>
+    .main
+    {
+  
+      display: flex!important;
+      width: 100%!important;
+      height: 100%;
+  /*     align-items: center; */
+      justify-content: center;
+  /*     padding: 10px 10px; */
+    }
+  </style>
+  <div class="main1">
+    <div class="main custom-slider" 
+         style="background-image:url({{ section.settings.main_image | img_url:"master"}})"
+         >
+      {% assign i=0 %}
+      {% for block in section.blocks %}
+        {% if block.type == 'slide-with-3-images' %}
+        {% assign collection1 = collections[block.settings.collection1] %}
+        {% if block.settings.image1 == blank %}
+        {% assign image= collection1.products.first | img_url:'master' %}
+        {% else %}
+        {% assign image= block.settings.image1 | img_url:'master' %}
+        {% endif %}
+        <a href="{{ collection1.url }}" class="custom-slide_1 custom-slide">
+          <img src="{{ image }}">
+        </a>
+        {% assign collection2 = collections[block.settings.collection2] %}
+        {% if block.settings.image2 == blank %}
+        {% assign image1= collection2.products.first | img_url:'master' %}
+        {% else %}
+        {% assign image1= block.settings.image2 | img_url:'master' %}
+        {% endif %}
+        <a href="{{ collection2.url }}" class="custom-slide_2 custom-slide">
+          <img src="{{ image1 }}">
+        </a>
+        {% assign collection3 = collections[block.settings.collection3] %}
+        {% if block.settings.image3 == blank %}
+        {% assign image2= collection3.products.first | img_url:'master' %}
+        {% else %}
+        {% assign image2= block.settings.image3 | img_url:'master' %}
+        {% endif %}
+        <a href="{{ collection3.url }}" class="custom-slide_3 custom-slide">
+          <img src="{{ image2 }}">
+        </a>
+      {% endif %}
+     {% endfor %} 
+    </div>
+     {% for block in section.blocks %}
+      {% if block.type == 'slide-with-1-image' %}
+      {% assign collection = collections[block.settings.collection] %}
+      {% if block.settings.image == blank %}
+      {% assign image= collection.products.first | img_url:'master' %}
+      {% else %}
+      {% assign image= block.settings.image | img_url:'master' %}
+      {% endif %}
+     {% if block.settings.mob_image == blank %}
+      {% assign image1= collection.products.first | img_url:'master' %}
+      {% else %}
+      {% assign image1= block.settings.mob_image | img_url:'master' %}
+      {% endif %}
+      <div class="main2">
+        <a href="{{ collection.url }}">
+          <img src="{{ image }}" class="main-slider-desk">
+          <img src="{{ image1 }}" class="main-slider-mob">
+        </a>
+         
+      </div>
+      {% endif %}
+       {% endfor %}
+  </div>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" integrity="sha512-HGOnQO9+SP1V92SrtZfjqxxtLmVzqZpjFFekvzZVWoiASSQgSr4cw9Kqd2+l8Llp4Gm0G8GIFJ4ddwZilcdb8A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.js" integrity="sha512-WNZwVebQjhSxEzwbettGuQgWxbpYdoLf7mH+25A7sfQbbxKeS5SQ9QBf97zOY4nOlwtksgDA/czSTmfj4DUEiQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+  <script>
+    $('.main1').slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      arrows: true,
+      adaptiveHeight: true,
+  
+  
+    });
+  
+    $(document).ready(function(){
+      $('.slick-prev').html('<svg xmlns="http://www.w3.org/2000/svg" style="color:black" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left-circle"><polyline points="12 8 8 12 12 16"></polyline></svg>');
+      $('.slick-next').html('<svg xmlns="http://www.w3.org/2000/svg" style="color:black" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right-circle"><polyline points="12 16 16 12 12 8"></polyline></svg>');
+    })
+  </script>
+  
+  {% schema %}
+  {
+     "name":"Custom-Slider",
+     "settings":[
+        {
+           "type":"image_picker",
+           "label":"Image",
+           "id":"main_image"
+        },
+        {
+           "type":"checkbox",
+           "id":"banner_enable",
+           "label":"Enable Banner",
+           "default":true
+        }
+     ],
+     "blocks":[
+        {
+           "name":"Slide with 3 images",
+           "type":"slide-with-3-images",
+           "settings":[
+              {
+                 "type":"header",
+                 "content":"Image 1"
+              },
+              {
+                 "type":"collection",
+                 "label":"collection 1",
+                 "id":"collection1"
+              },
+              {
+                 "type":"image_picker",
+                 "label":"Image 1",
+                 "id":"image1"
+              },
+              {
+                 "type":"header",
+                 "content":"Image 2"
+              },
+              {
+                 "type":"collection",
+                 "label":"collection 2",
+                 "id":"collection2"
+              },
+              {
+                 "type":"image_picker",
+                 "label":"Image 2",
+                 "id":"image2"
+              },
+              {
+                 "type":"header",
+                 "content":"Image 3"
+              },
+              {
+                 "type":"collection",
+                 "label":"collection 3",
+                 "id":"collection3"
+              },
+              {
+                 "type":"image_picker",
+                 "label":"Image 3",
+                 "id":"image3"
+              }
+           ]
+        },
+        {
+           "name":"Slide with 1 images",
+           "type":"slide-with-1-image",
+           "settings":[
+              {
+                 "type":"collection",
+                 "label":"collection",
+                 "id":"collection"
+              },
+              {
+                 "type":"image_picker",
+                 "label":"Image",
+                 "id":"image"
+              },
+              {
+                 "type":"image_picker",
+                 "label":"Mobile Image",
+                 "id":"mob_image"
+              }
+           ]
+        }
+     ],
+     "presets":[
+        {
+           "category":"Slider",
+           "name":"Three Cut Banner"
+        }
+     ]
+  }
+  {% endschema %}
+  
+  {% stylesheet %}
+  {% endstylesheet %}
+  
+  {% javascript %}
+  {% endjavascript %}
+  

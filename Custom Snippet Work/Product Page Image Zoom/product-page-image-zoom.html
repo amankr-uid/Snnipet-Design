@@ -1,0 +1,142 @@
+<style>  
+
+  .product-img--main {
+  overflow: hidden;
+  width: 100%;
+  float: left;
+}
+.product-img--main__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+  	background-color: #fff;
+    -webkit-transition: -webkit-transform .5s ease-out;
+    transition: -webkit-transform .5s ease-out;
+    transition: transform .5s ease-out;
+    transition: transform .5s ease-out,-webkit-transform .5s ease-out;
+}
+  .ced-lazy-image {
+  position: relative;
+}
+ .img-magnifier-glass {
+  position: absolute;
+  border: 3px solid #000;
+  border-radius: 50%;
+  cursor: none;
+  width: 200px;
+  height: 200px;
+} 
+
+</style>
+
+
+<div class="product__media media media--transparent gradient global-media-settings ced-lazy-image product-img--main 123" style="padding-top: {{ 1 | divided_by: media.preview_image.aspect_ratio | times: 100 }}%;" data-scale="1.8" data-image="{{- product.featured_image | img_url: 'master' -}}">
+    <img
+      srcset="{% if media.preview_image.width >= 493 %}{{ media.preview_image | img_url: '493x' }} 493w,{% endif %}
+        {% if media.preview_image.width >= 600 %}{{ media.preview_image | img_url: '600x' }} 600w,{% endif %}
+        {% if media.preview_image.width >= 713 %}{{ media.preview_image | img_url: '713x' }} 713w,{% endif %}
+        {% if media.preview_image.width >= 823 %}{{ media.preview_image | img_url: '823x' }} 823w,{% endif %}
+        {% if media.preview_image.width >= 990 %}{{ media.preview_image | img_url: '990x' }} 990w,{% endif %}
+        {% if media.preview_image.width >= 1100 %}{{ media.preview_image | img_url: '1100x' }} 1100w,{% endif %}
+        {% if media.preview_image.width >= 1206 %}{{ media.preview_image | img_url: '1206x' }} 1206w,{% endif %}
+        {% if media.preview_image.width >= 1346 %}{{ media.preview_image | img_url: '1346x' }} 1346w,{% endif %}
+        {% if media.preview_image.width >= 1426 %}{{ media.preview_image | img_url: '1426x' }} 1426w,{% endif %}
+        {% if media.preview_image.width >= 1646 %}{{ media.preview_image | img_url: '1646x' }} 1646w,{% endif %}
+        {% if media.preview_image.width >= 1946 %}{{ media.preview_image | img_url: '1946x' }} 1946w,{% endif %}
+        {{ media.preview_image | img_url: 'master' }} {{ media.preview_image.width }}w"
+      src="{{ media | img_url: '1946x' }}"
+      sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | times: media_width | round }}px, (min-width: 990px) calc({{ media_width | times: 100 }}vw - 10rem), (min-width: 750px) calc((100vw - 11.5rem) / 2), calc(100vw - 4rem)"
+      {% unless lazy_load == false %}loading="lazy"{% endunless %}
+      width="973"
+      height="{{ 973 | divided_by: media.preview_image.aspect_ratio | ceil }}"
+      alt="{{ media.preview_image.alt | escape }}"id="cedimagezoom"
+                class=" cedimagezoom "
+    >
+  </div>
+
+
+  <script>
+$('.product-img--main')
+        // tile mouse actions
+        .on('mouseover', function(){
+          $(this).children('.product-img--main__image').css({'transform': 'scale('+ $(this).attr('data-scale') +')'});
+        })
+        .on('mouseout', function(){
+          $(this).children('.product-img--main__image').css({'transform': 'scale(1)'});
+        })
+        .on('mousemove', function(e){
+          $(this).children('.product-img--main__image').css({'transform-origin': ((e.pageX - $(this).offset().left) / $(this).width()) * 100 + '% ' + ((e.pageY - $(this).offset().top) / $(this).height()) * 100 +'%'});
+        })
+        // tiles set up
+        .each(function(){
+          $(this)
+            // add a image container
+            .append('<div class="product-img--main__image"></div>')
+            .children('.product-img--main__image').css({'background-image': 'url('+ $(this).attr('data-image') +')'});
+        });
+
+</script>
+
+ced.js
+/* ---- Zoom Effect on product Page ---- */
+
+function magnify(cedimagezoom, cedimagezoom) {
+  var img, glass, w, h, bw;
+  img = document.getElementById(cedimagezoom);
+  /*create magnifier glass:*/
+  glass = document.createElement("DIV");
+  glass.setAttribute("class", "img-magnifier-glass");
+  /*insert magnifier glass:*/
+  img.parentElement.insertBefore(glass, img);
+  /*set background properties for the magnifier glass:*/
+  glass.style.backgroundImage = "url('" + img.src + "')";
+  glass.style.backgroundRepeat = "no-repeat";
+  glass.style.backgroundSize = (img.width * zoom) + "px " + (img.height * zoom) + "px";
+  bw = 3;
+  w = glass.offsetWidth / 2;
+  h = glass.offsetHeight / 2;
+  /*execute a function when someone moves the magnifier glass over the image:*/
+  glass.addEventListener("mousemove", moveMagnifier);
+  img.addEventListener("mousemove", moveMagnifier);
+  /*and also for touch screens:*/
+  glass.addEventListener("touchmove", moveMagnifier);
+  img.addEventListener("touchmove", moveMagnifier);
+  function moveMagnifier(e) {
+    var pos, x, y;
+    /*prevent any other actions that may occur when moving over the image*/
+    e.preventDefault();
+    /*get the cursor's x and y positions:*/
+    pos = getCursorPos(e);
+    x = pos.x;
+    y = pos.y;
+    /*prevent the magnifier glass from being positioned outside the image:*/
+    if (x > img.width - (w / zoom)) {x = img.width - (w / zoom);}
+    if (x < w / zoom) {x = w / zoom;}
+    if (y > img.height - (h / zoom)) {y = img.height - (h / zoom);}
+    if (y < h / zoom) {y = h / zoom;}
+    /*set the position of the magnifier glass:*/
+    glass.style.left = (x - w) + "px";
+    glass.style.top = (y - h) + "px";
+    /*display what the magnifier glass "sees":*/
+    glass.style.backgroundPosition = "-" + ((x * zoom) - w + bw) + "px -" + ((y * zoom) - h + bw) + "px";
+  }
+  function getCursorPos(e) {
+    var a, x = 0, y = 0;
+    e = e || window.event;
+    /*get the x and y positions of the image:*/
+    a = img.getBoundingClientRect();
+    /*calculate the cursor's x and y coordinates, relative to the image:*/
+    x = e.pageX - a.left;
+    y = e.pageY - a.top;
+    /*consider any page scrolling:*/
+    x = x - window.pageXOffset;
+    y = y - window.pageYOffset;
+    return {x : x, y : y};
+  }
+}
+

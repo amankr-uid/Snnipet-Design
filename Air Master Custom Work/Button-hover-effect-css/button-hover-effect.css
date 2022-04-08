@@ -1,0 +1,80 @@
+/* ---- Button Hover effect ---- */
+
+.image-with-text__content .custom-iwt-btn {
+	position:relative;
+  	overflow:hidden;
+  	z-index:1;
+}
+
+    
+/* ---- Keyframes ---- */
+      
+@keyframes criss-cross-left{      
+0% {
+    left: -20px;
+}
+50% {
+    left: 50%;
+    width: 20px;
+    height: 20px;
+}
+100% {
+    left: 50%;
+    width: 100%;
+    height: 375px;
+}
+} 
+
+@keyframes criss-cross-right {
+0% {
+    right: -20px;
+}
+50% {
+    right: 50%;
+    width: 20px;
+    height: 20px;
+}
+100% {
+    right: 50%;
+    width: 100%;
+    height: 375px;
+}
+}
+
+
+/* ---- Media Query ---- */
+
+#cart-notification-form .button::before, #cart-notification-form .button::after {	
+	position: absolute;
+	top: 50%;
+	content: "";
+	width: 20px;
+	height: 20px;
+	background-color: #fff;
+	border-radius: 50%;
+  	transition: 0.5s all ease-in-out;
+  	z-index:-1;
+}
+#cart-notification-form .button::before {
+	left: -20px;
+	transform: translate(-50%, -50%);
+}
+#cart-notification-form .button::after {
+	right: -20px;
+	transform: translate(50%, -50%);
+}
+#cart-notification-form .button:hover {
+	color: var(--blue) !important;
+}
+#cart-notification-form .button:hover::after {
+	-webkit-animation: criss-cross-right 0.5s both;
+	animation: criss-cross-right 0.5s both;
+	-webkit-animation-direction: alternate;
+	animation-direction: alternate;
+}
+#cart-notification-form .button:hover::before {
+	-webkit-animation: criss-cross-left 0.5s both;
+	animation: criss-cross-left 0.5s both;
+	-webkit-animation-direction: alternate;
+	animation-direction: alternate;
+}

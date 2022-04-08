@@ -1,0 +1,49 @@
+
+.sale-badge-wrapper{
+	  background: #D95553;
+}
+
+.sale-badge{
+	  display: inline-block;
+  	  position: relative;
+  	  padding: 0 5px 0 10px;
+      margin: 0 0 5px 0;
+      font-weight: 300;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+      height: 15px;
+      line-height: 15px;
+      color: #fff;
+      white-space: nowrap;
+      vertical-align: middle;
+      font-size: 9px;
+      font-weight: 600;
+}
+
+.sale-badge-top {
+	position: absolute;
+	top: 0;
+	right: -15px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 15px 15px 0 0;
+}
+
+.sale-badge-wrapper .sale-badge-top {
+	border-color: #D95553 transparent transparent transparent;
+}
+
+.sale-badge-bottom {
+	position: absolute;
+	top: 0;
+	right: -15px;
+	width: 0;
+	height: 0;
+	border-style: solid;
+	border-width: 15px 0 0 15px;
+}
+.sale-badge-wrapper .sale-badge-bottom {
+	border-color: transparent transparent transparent #D95553;
+}

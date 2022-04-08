@@ -1,0 +1,159 @@
+/* ---- Root ---- */
+
+:root {
+ 	--accent:#6FDA5B;
+  	--accent2:#E4FB87;
+}
+
+
+/* ---- Gallery Section ---- */
+
+.custom-gallery-head {
+	font-size: 35px;
+	text-align: center;
+  	text-transform: capitalize;
+  	margin-bottom:70px;
+}
+.custom-gallery-section-wrap::before {
+ 	content: "";
+  	position:absolute;
+  	top:0;
+  	left:0;
+  	right:0;
+  	bottom:0;
+  	z-index: -1;
+}
+.custom-gallery-section {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	list-style: none;
+}
+.custom-gallery-img-text-wrap, .custom-gallery-section-wrap  {
+ 	position: relative; 
+}
+.custom-img-wrap {
+	height: 450px;
+	position: relative;
+	margin-top: 5px;
+}
+.custom-img-wrap::before {
+	content: "";
+	position: absolute;
+	top: -18px;
+	left: -25px;
+	border: 2px solid var(--accent);
+	z-index: -1;
+	border-radius: 40%;
+	width: 100%;
+	height: 100%;
+}
+.custom-gallery-img {
+  	display:block;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+  	border-radius:40%;
+}
+.custom-text-wrap {
+	position: absolute;
+	background: var(--accent2);
+	border-radius: 20px 0;
+	padding: 10px 30px;
+	bottom: 40px;
+}
+.custom-text {
+	font-size: 20px;
+	margin: 0;
+}
+
+
+/* ---- Media Query ---- */
+      
+	/* *** Desktop *** */
+
+@media(min-width:990px) {
+.custom-gallery-section {
+	height: 600px;
+}
+.custom-gallery-img-text-wrap {
+	display: flex !important;
+	justify-content: center !important;
+}
+.custom-img-wrap {
+	width: 60%;
+}
+  
+}
+
+
+	/* *** Ipad / Tab *** */
+
+@media(min-width: 750px) {
+.custom-gallery-section-wrap::before {
+  	top:0;
+  	background: url(https://cdn.shopify.com/s/files/1/0638/9075/1714/files/New_Project_1.png?v=1648877184);
+  	background-size:contain;
+  	background-repeat: no-repeat;
+}
+.custom-gallery-img-text-wrap {
+	width: calc(33% - var(--grid-desktop-horizontal-spacing) * 3 / 4);
+}
+.custom-gallery-wrap-1, .custom-gallery-wrap-3 {
+	align-self: flex-end;
+}
+.custom-gallery-wrap-2, .custom-gallery-wrap-4 {
+ 	align-self:flex-start; 
+}
+  
+}
+
+      
+      
+@media(min-width:750px) and (max-width:989px) {
+.custom-gallery-head {
+  	margin-bottom:50px;
+}
+.custom-gallery-section {
+	height: 450px;
+}
+.custom-gallery-img-text-wrap {
+	display: flex;
+	justify-content: center;
+} 
+.custom-img-wrap {
+	width: 82%;
+	height: 300px;
+}
+.custom-text-wrap {
+	padding: 5px 10px;
+}
+  
+}
+      
+
+	/* *** Mobile *** */
+
+@media(max-width:749px) {
+.custom-gallery-section-wrap::before {
+	background: url(https://cdn.shopify.com/s/files/1/0638/9075/1714/files/New_Project_2.png?v=1648881216);
+  	background-size: contain;
+  	top: -30px;
+  	background-repeat: no-repeat;
+}
+.custom-gallery-section {
+	flex-flow: column;
+  	row-gap:50px;
+}
+.custom-gallery-img-text-wrap {
+	width: 100%;
+  	max-width: 100% !important;
+  	display:flex;
+  	justify-content: center;
+}
+.custom-img-wrap {
+	width: 75%;
+}
+  
+}
