@@ -1,0 +1,14 @@
+.section-header__title::before {
+	position: absolute;
+	content: attr(data-title);
+	left: 50%;
+	transform: translateX(-50%);
+	top: -28px;
+	font-size: 35px;
+	color: #d0d0d0;
+	z-index: 1;
+	letter-spacing: 8px;
+	line-height: 1;
+	opacity: .5;
+	font-family: 'Homemade Apple',cursive;
+}

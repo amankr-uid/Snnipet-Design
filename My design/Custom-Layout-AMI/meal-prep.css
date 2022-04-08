@@ -1,0 +1,98 @@
+
+
+body{
+	margin: 0;
+	padding:0;
+}
+
+ /*ABout Us */
+ .ced-custom-meal-prep{
+ 	width: 100%;
+ 	height: 100%;
+ } 
+.page-width{
+	width: 100%;
+	max-width: 95%;
+	margin: 0 auto;
+}
+ .meal-prep-middle {
+ 	background: url(/home/cedcoss/Downloads/IMG_8500.jpg);
+ 	background-size: cover;
+ 	background-repeat: no-repeat;
+ 	padding: 50px;
+ }
+.custom-meal-prep-h1, .custom-meal-prep-h2{
+	font-size: 40px;
+	text-shadow: 2px 2px 4px #6A5B54;
+	color:#000;
+	text-transform: uppercase;
+	text-align: center;
+}
+ .custom-img-text-wrap {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+}
+.custom-img-wrap, .custom-txt-wrap {
+    width: 50%;
+    height: 100%;
+    text-align: center;
+}
+.custom-img-text-wrap {
+    background: #f9eae5;
+}
+.custom-meal-prep-txt {
+    margin-top: 10px;
+    font-size: 30px;
+    text-transform: uppercase;
+    color: #654321;
+}
+h4.custom-meal-prep-list {
+    font-size: 18px;
+    color: #654321;
+}
+.custom-meal-prep-para {
+    font-size: 16px;
+    color: #654321;
+}
+
+.custom-meal-prep-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+h3.custom-meal-txt {
+    font-size: 25px;
+    text-align: center;
+    color: #654321;
+}
+h3.custom-meal-txt a {
+    color: #AD521F;
+}
+h5.custom-meal-txt-list {
+    text-align: center;
+    font-size: 18px;
+    color: #654321;
+}
+p.custom-meal-para {
+    font-size: 18px;
+    text-align: center;
+    color: #654321;
+}
+
+@media(max-width:991px){
+.custom-img-text-wrap {
+    flex-wrap: wrap;
+}
+.custom-img-wrap, .custom-txt-wrap {
+    width: 100%;
+}
+.custom-meal-prep-txt {
+    font-size: 25px;
+}
+
+
+}

@@ -1,0 +1,106 @@
+.mosaic-up {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+}
+.mosaic-left {
+    flex: 1 1 50%;
+    display: flex;
+    gap: 5px;
+}
+.mosaic-up-left, .mosaic-up-center {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 25%;
+    gap: 5px;
+}
+.up-left, .down-left, .down-center, .up-center, .mosaic-up-right, .mosaic-down-left, .mosaic-down-right {
+    position: relative;
+}
+.image-text-link {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.image-text-link:before {
+    content: "";
+    position: absolute;
+    top: auto;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    bottom: -100%;
+    transition: 0.5s all ease-in-out;
+}
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.mosaic-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    z-index: 1;
+    transition: 0.3s all ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+.redirect-page {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 1;
+}
+.redirect-page svg {
+    fill: #fff;
+}
+.mosaic-right {
+    flex: 1 1 50%;
+}
+.mosaic-up-right {
+    width: 100%;
+    height: 100%;
+}
+.mosaic-down {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 5px;
+}
+.mosaic-down-left, .mosaic-down-right {
+    flex: 1 1 50%;
+}
+
+
+.image-text-link:hover:before {
+    bottom: 0;
+}
+.image-text-link:hover .mosaic-text{
+	opacity:1;
+	visibility: visible;
+	/*transform: translateY(-40%);*/
+	top:60%;
+}
+
+
+@media(max-width:749px){
+	.mosaic-up-left, .mosaic-up-center {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	justify-content: center;
+	flex-wrap: wrap;
+}
+.mosaic-down-left, .mosaic-down-right {
+	width: 100%;
+	height: 100%;
+}
+.mosaic-up-right {
+	width: 100%;
+	height: auto;
+}
+}

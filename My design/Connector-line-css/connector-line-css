@@ -1,0 +1,26 @@
+/*.slider-mobile-gutter {
+	overflow: hidden;
+}*/
+/*#shopify-section-template--15172250665137__163341656970d923c3 .slider-mobile-gutter::before{
+	content:'';
+	position:absolute;
+  	width:100%;
+  	height:10px;
+  	background-color:#000000;
+  	top:50%;
+  	transform:translateY(-50%);
+	z-index:1;
+	
+}
+#shopify-section-template--15172250665137__163341656970d923c3 .slider-mobile-gutter::after{
+	content:'';
+	position:absolute;
+  	width:100px;
+  	height:10px;
+  	background-color:#c8a63a;
+  	top:50%;
+  	transform:translateY(-50%);
+	  animation: mymove 5s infinite;
+  	animation-direction: normal;
+  	z-index:2;
+}*/

@@ -1,0 +1,134 @@
+/* Font */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+/* Global */
+
+body{
+    margin:0;
+    padding:0;
+    font-family: 'Roboto', sans-serif;
+    font-size:20px;
+    letter-spacing:0.2rem;
+}
+
+/* Head-nav */
+
+.head-nav{
+    position: relative;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, 
+            rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    padding:1rem 5rem;
+}
+.nav-menu-list {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-evenly;
+    list-style:none;
+}
+li.menu-list {
+    padding-left: 2rem;
+}
+li.menu-list  a {
+    text-decoration: none;
+    color: #212020de;
+}
+
+/* Hero Banner */
+
+.hero-banner{
+    width:100%;
+    position:relative;
+}
+img.img-banner {
+    width: 100%;
+}
+
+/* product-card */
+
+.product-card{
+    width:100%;
+    position:relative;
+    padding-top:1rem;
+}
+.card-title {
+    text-align: center;
+    font-size: 1.8rem;
+}
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 90%;
+    padding-top: 1rem;
+    margin: auto;
+    gap: 0.8rem;
+}
+
+.product-list-item {
+    max-width: 100%;
+    display: flex;
+    background: #dededede;
+    flex-direction: column;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, 
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+}
+img.image-md {
+    width: 290px;
+    height: 250px;
+    object-fit: cover;
+}
+.product-bottom {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.product-bottom *{
+    margin:0;
+    padding:5px;
+}
+.product-price {
+    color: #505050;
+}
+
+/* Collection */
+
+.Collection-product {
+    position:relative;
+    max-width: 90%;
+    margin: auto;
+}
+.coll-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.coll-grid-item1, .coll-grid-item {
+    position: relative;
+}
+img.coll-img {
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+.coll-grid-item2 {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.text1 {
+    position: absolute;
+    top: 30px;
+    padding:0 2rem;
+    color: #fff;
+}
+.text2, .text3 {
+    position: absolute;
+    top: 30px;
+    right:30px;
+    transform:translateX(-30px);
+    color: #fff;
+}

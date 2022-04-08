@@ -1,0 +1,124 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+body{
+	margin: 0;
+	padding:0;
+}
+
+ /*ABout Us */
+ .ced-custom-about{
+ 	width: 100%;
+ 	height: 100%;
+ } 
+.page-width{
+	width: 100%;
+	max-width: 95%;
+	margin: 0 auto;
+}
+ .about-header {
+ 	background: url(/home/cedcoss/Downloads/IMG_8500.jpg);
+ 	background-size: cover;
+ 	background-repeat: no-repeat;
+ 	padding: 50px;
+ }
+.about-header h1{
+	font-size: 40px;
+	text-shadow: 2px 2px 4px #6A5B54;
+	color:#fff;
+	text-transform: uppercase;
+	text-align: center;
+}
+.custom-img-text-button-wrapper, .custom-img-text-wrap {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    width: 100%;
+}
+.custom-image-wrapper, .custom-text-wrapper, .custom-img-wrap, .custom-txt-wrap {
+    width: 50%;
+}
+.custom-about-subheading {
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    color: #B26930;
+    margin-top: 10px;
+}
+.custom-about-heading {
+    font-size: 50px;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    color: #6A5B54;
+    margin-top: 20px;
+}
+.custom-about-btn {
+    font-size: 16px;
+    text-transform: uppercase;
+    background-color: #AE8875;
+    color: #fff;
+    padding: 20px 30px;
+    margin-bottom: 15px;
+    border: unset;
+}
+.custom-img-text-wrap {
+    background: #f9eae5;
+}
+.custom-about-txt {
+    margin-top: 10px;
+    font-size: 35px;
+    text-transform: uppercase;
+    color: #503F37;
+}
+.custom-about-para {
+    font-size: 20px;
+    color: #8C817C;
+}
+.about-footer {
+    background: #f9eae5;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+.about-footer-h3{
+	width: 50%;
+	text-align: center;
+	color: #503F37;
+	font-size: 40px;
+	text-transform: uppercase;
+}
+.about-footer-h3 span{
+	color: #C78552;
+	text-decoration: underline;
+}
+.custom-about-image, .custom-about-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+@media(max-width:991px){
+.custom-img-text-button-wrapper, .custom-img-text-wrap {
+    flex-wrap: wrap;
+}
+.custom-image-wrapper, .custom-text-wrapper, .custom-img-wrap, .custom-txt-wrap {
+    width: 100%;
+}
+.about-footer {
+    flex-wrap: wrap;
+}
+.about-footer-h3 {
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+}
+.custom-about-heading {
+    font-size: 30px;
+}
+.custom-about-txt {
+    font-size: 25px;
+}
+
+}

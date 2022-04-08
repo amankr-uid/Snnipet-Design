@@ -1,0 +1,30 @@
+.container{
+background-color: yellow;
+border:2px solid grey;
+width: 40%;
+height: 400px;
+position:relative;
+}
+
+.container>*{
+    position:absolute;
+}
+
+.box2{
+    top:0;
+    right:0;
+}
+.box3{
+bottom:0;
+right:0;
+}
+.box4{
+bottom:0;
+left:0;
+}
+.box5{
+top:50%;
+left:50%;
+transform:translate(-50%, -50%);
+}
+

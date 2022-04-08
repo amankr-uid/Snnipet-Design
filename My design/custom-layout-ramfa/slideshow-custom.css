@@ -1,0 +1,14 @@
+.custom-slide-section {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+.custom-slide-section-link {
+    width: 100%;
+    height: 100%;
+}
+.custom-slide-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

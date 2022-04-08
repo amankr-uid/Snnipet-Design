@@ -1,0 +1,28 @@
+.c1:hover::after, .c2:hover::after, .c3:hover::after, .c4:hover::after, .c5:hover::after, .deferred-media:hover::after, .media--transparent:hover::after {
+	top: 120%;
+	right: -75%;
+	-webkit-transition: all .65s ease;
+	-moz-transition: all .65s ease;
+	-ms-transition: all .65s ease;
+	-o-transition: all .65s ease;
+	transition: all .65s ease;
+}
+.c1::after, .c2::after, .c3::after, .c4::after, .c5::after {
+	content: "";
+	display: inline-block;
+	width: 150%;
+	height: 80%;
+	position: absolute;
+	top: -75%;
+	right: 32%;
+	background: rgba(255,225,255,.15);
+	-webkit-transform: skewY(-50deg);
+	-ms-transform: skewY(-50deg);
+	transform: skewY(-50deg);
+	-webkit-transition: all .65s ease;
+	-moz-transition: all .65s ease;
+	-ms-transition: all .65s ease;
+	-o-transition: all .65s ease;
+	transition: all .65s ease;
+	overflow: hidden;
+}

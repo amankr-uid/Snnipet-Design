@@ -1,0 +1,22 @@
+.grid-product__tag.grid-product__tag--sold-out {
+	position: absolute;
+	top: 0;
+	margin: -16px 0 0;
+	padding: 10px 8px 7px;
+	color: #fff;
+	font-size: 14px;
+	background-color: #af3339;
+	font-weight: 600;
+	right: unset !important;
+	left: 8px;
+}
+.grid-product__tag.grid-product__tag--sold-out::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	width: 7px;
+	height: 0;
+	right: 100%;
+	border-right: 10px solid #af3339;
+	border-top: 16px solid transparent;
+}

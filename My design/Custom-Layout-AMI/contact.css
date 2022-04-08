@@ -1,0 +1,124 @@
+body{
+	margin: 0;
+	padding:0;
+}
+
+ /*Contact Us */
+ .ced-custom-contact{
+ 	width: 100%;
+ 	height: 100%;
+ } 
+.page-width{
+	width: 100%;
+	max-width: 95%;
+	margin: 0 auto;
+}
+.custom-contact-img-text-wrap{
+	display: flex;
+	width: 100%;
+	margin-top: 30px;
+   	position: relative;
+   	height: 100%;
+}
+.custom-contact-txt-wrap {
+    background: #f9eae5;
+}
+.custom-contact-img{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.custom-contact-txt {
+    font-size: 35px;
+    text-transform: capitalize;
+    color: #503F37;
+}
+.custom-contact-para{
+	font-size: 25px;
+	color: #8C817C;
+}
+.custom-about-btn{
+	font-size: 16px;
+    text-transform: uppercase;
+    background-color: #AE8875;
+    color: #fff;
+    padding: 20px 30px;
+    margin-bottom: 15px;
+    border: unset;
+}
+.contact-footer {
+    background: #f9eae5;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-top: 50px;
+}
+.contact-footer-h3{
+	width: 50%;
+	text-align: center;
+	color: #C78552;
+	font-size: 40px;
+	text-transform: uppercase;
+	text-decoration: underline;
+}
+
+@media(min-width:768px){
+	.custom-contact-txt-wrap {
+    width: 40%;
+    position: absolute;
+    background: #f9eae5;
+    padding: 30px;
+    left: 25%;
+    top: 15%;
+    transform: translateX(-50%);
+}
+.custom-contact-img-text-wrap{
+   	justify-content: flex-end;
+}
+.custom-contact-img-wrap{
+	width: 60%;
+	height: 100%;
+}
+
+}
+@media(min-width:768px) and (max-width:991px){
+	.contact-footer {
+    margin-top: 360px;
+}
+}
+
+@media(max-width:767px){
+.custom-contact-txt-wrap {
+    width: 100%;
+    background: #f9eae5;
+    padding: 15px;
+    
+}
+.custom-contact-img-wrap{
+	width: 100%;
+	height: 100%;
+}
+.custom-contact-txt {
+    margin-top: 10px;
+    font-size: 25px;
+}
+.custom-contact-para {
+    font-size: 18px;
+}
+.custom-contact-img-text-wrap {
+   flex-wrap: wrap;
+}
+.custom-about-btn {
+    padding: 15px 30px;
+}
+.contact-footer {
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+.contact-footer-h3 {
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+}
+}
