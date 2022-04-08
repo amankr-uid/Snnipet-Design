@@ -1,0 +1,208 @@
+ {{ 'animated-slideshow.css' | asset_url | stylesheet_tag }}
+
+{%- if section.settings.slide_height == 'adapt_image' and section.blocks.first.settings.image != blank -%}
+  {%- style -%}
+  @media screen and (max-width: 749px) {
+    #Slider-{{ section.id }}::before,
+    #Slider-{{ section.id }} .media::before,
+    #Slider-{{ section.id }}:not(.banner--mobile-bottom) .banner__content::before {
+      padding-bottom: {{ 1 | divided_by: section.blocks.first.settings.image.aspect_ratio | times: 100 }}%;
+      content: '';
+      display: block;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    #Slider-{{ section.id }}::before,
+    #Slider-{{ section.id }} .media::before {
+      padding-bottom: {{ 1 | divided_by: section.blocks.first.settings.image.aspect_ratio | times: 100 }}%;
+      content: '';
+      display: block;
+    }
+  }
+  {%- endstyle -%}
+{%- endif -%}
+
+
+<div class="animated-slideshow-section">
+
+  <div class="animated-slideshow-wrap">
+    <div class="animated-slide-text-btn-wrap">
+      <div class="animated-slide-text-wrap">
+       
+        <div class="animated-content-slider">
+           {%- for block in section.blocks -%}
+           <div class="animated-text-item">
+             {%- if block.settings.heading != blank -%}
+              <div class="text-animate animate-title fadeInDown animation" data-animate="fadeInDown animated"> {{ block.settings.heading | escape }}</div>
+             {%- endif -%}
+              {%- if block.settings.subheading != blank -%}
+              <div class="text-animate image-text zoomIn animation" data-animate="zoomIn animated"> {{ block.settings.subheading | escape }}</div>
+              {%- endif -%}
+              {%if block.settings.description !=blank%}
+          	  <div class="animated-text-slide fadeInUp animation" data-animate="fadeInUp animated" {{ block.shopify_attributes }}>
+               <p class="animated-text-para" >
+               	{{block.settings.description | remove:"<p>" | remove:"</p>" }}
+               </p>
+             </div>
+             {%- endif -%}
+               {%- if block.settings.button_label != blank -%}
+             <div class="banner__buttons">
+             <a {% if block.settings.link %} href="{{ block.settings.link }}"{% else %} role="link" aria-disabled="true"{% endif %} class="animated-text-btn" > {{ block.settings.button_label | escape }}</a>
+             </div>
+              {%- endif -%}
+        	</div>
+         {%- endfor -%} 
+        </div>
+		<div class="animate-slide-bottom">
+          
+        </div>
+      </div>
+    </div>
+    <div class="animated-slide-image-wrap">
+    
+      <div class="animated-img-slider">
+          {%- for block in section.blocks -%}
+        <div class="animated-img-item">
+         
+          <div class="animated-img-slide-skew" >
+            <div class="animated-slide-image ">
+              {%- if block.settings.images != blank -%}
+              <img class="animate-slide-img" src="{{ block.settings.images | img_url: 'master' }}" alt="{{ block.settings.images.alt | escape }}" >
+              {%- endif -%}
+            </div>
+          </div>
+        </div>
+        {%- endfor -%}
+      </div>
+        
+    </div>
+  </div>
+ 
+</div>
+
+<script>
+$('.animated-content-slider').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  arrows: true,
+  fade: false,
+  asNavFor: '.animated-img-slider'
+});
+$('.animated-img-slider').slick({
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  asNavFor: '.animated-content-slider',
+  dots: false,
+  arrows:false,
+  centerMode: false,
+  focusOnSelect: true
+});
+  
+ $(document).ready(function(){
+    $('.slick-prev').html('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-left"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>');
+    $('.slick-next').html('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>');
+  })
+  
+ 
+</script>  
+
+{% schema %}
+{
+	"name": "Animated Slideshow",
+	"tag":"section",
+    "settings":[
+            {
+      			"type": "select",
+      			"id": "slide_height",
+      			"options": [
+        				{
+         					"value": "adapt_image",
+          					"label": "Adaptive Image"
+        				},
+        				{
+          					"value": "small",
+          					"label": "Small"
+        				},
+        				{
+          					"value": "medium",
+          					"label": "Medium"
+        				},
+        				{
+          					"value": "large",
+          					"label": "Large"
+        				}
+      				],
+      			"default": "adapt_image",
+     		 	"label": "Adaptive Image"
+    		}
+        ],
+        "blocks":[
+            {
+                "type":"slide-image",
+                "name":"section",
+                "settings":[
+                    {
+                        "type":"image_picker",
+                        "id":"images",
+                        "label":"Choose Image"
+                    },
+        			 {
+          				"type": "text",
+          				"id": "heading",
+          				"default": "Image slide",
+          				"label": "Heading"
+        			},
+        			{
+          				"type": "text",
+          				"id": "subheading",
+          				"default": "Tell your brand's story through images",
+          				"label": "Sub Heading"
+        			},
+        			{
+            			"type":"richtext",
+            			"id":"description",
+            			"label":"Description"
+         			},
+        			{	
+          				"type": "text",
+          				"id": "button_label",
+          				"default": "Button label",
+          		        "label": "Button label"
+        			},
+        			{
+          				"type": "url",
+          				"id": "link",
+          				"label": "Button Link"
+        			},
+        			{
+          				"type": "checkbox",
+          				"id": "button_style_secondary",
+          				"label": "Button Style",
+          				"default": false
+            		}
+				]
+			}
+        ], 
+        "presets":[
+            {
+             "name":"Animated Slideshow",
+             "blocks":[
+                {
+                    "type":"slide-image"
+                },
+                {
+                    "type":"slide-image"
+                }
+             ]
+
+            }
+        ]
+    }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
